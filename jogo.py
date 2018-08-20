@@ -2,6 +2,7 @@ import funcoes
 
 tentativas = int
 cont_tent = 0
+chute = ''
 
 while True:
     diff = int(input("Dificuldade:\n[1] Fácil\n[2] Médio\n[3] Hard\n"))
@@ -20,7 +21,6 @@ while True:
         break
     else:
         print('Opção Invalida\nTente Novamente')
-        continue
 
 print(f"Sua palavra embaralhada é {funcoes.embaralha(palavra)}")
 while True:
@@ -30,9 +30,10 @@ while True:
         print("Parabens")
     elif palavra != chute:
         print(funcoes.msg_pos())
-        continue
     if cont_tent >= tentativas or palavra == chute:
         break
 
 print(f"Você tentou {cont_tent} vezes")
+if palavra != chute:
+    print(f"A palavra era {palavra}")
 
