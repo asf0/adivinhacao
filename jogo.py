@@ -2,7 +2,6 @@ import funcoes
 
 tentativas = int
 cont_tent = 0
-chute = ''
 
 while True:
     diff = int(input("Dificuldade:\n[1] Fácil\n[2] Médio\n[3] Hard\n"))
@@ -11,7 +10,6 @@ while True:
         break
     else:
         print('Opção Invalida\nTente Novamente')
-        continue
 
 while True:
     palavra_tema = int(input("Temas:\n[1] Cidades\n[2] Cores\n[3] Nomes\n"))
@@ -34,6 +32,4 @@ while True:
         break
 
 print(f"Você tentou {cont_tent} vezes")
-if palavra != chute:
-    print(f"A palavra era {palavra}")
 

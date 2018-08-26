@@ -1,14 +1,24 @@
 from random import choice, shuffle
-import pandas as pd
-arq_csv = pd.read_csv('arq.csv', delimiter=',')
+import csv
+from collections import defaultdict
+
+col = defaultdict(list)
+
+with open("arq.csv") as File:
+    reader = csv.DictReader(File)
+    for c in reader:
+        for(x, y) in c.items():
+            col[x].append(y)
+File.close()
+
 def msg_pos():
-    pos = arq_csv['msg_positiva']
+    pos = col['msg_positiva']
     return choice(pos)
 
 
 def tema(num):
     temas_list = ['cidades', 'cores', 'nomes']
-    tema = arq_csv[temas_list[num-1]]
+    tema = col[temas_list[num-1]]
     return choice(tema)
 
 
@@ -22,5 +32,3 @@ def embaralha(word):
     shuffle(temp)
     return ''.join(temp)
 
-if __name__ == '__main__':
-    jogar()
